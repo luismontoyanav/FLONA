@@ -9,7 +9,8 @@ class ListEmployeesApiView(APITestCase):
     def setUp(self) -> None:
         self.url = reverse("employees")
 
-    def test_list_employees(self):
+    def test_empty_list_employees(self):
         response = self.client.get(self.url)
         self.assertEqual(response.status_code, status.HTTP_200_OK)
-        self.assertEqual(len(response.data), 1)
+        self.assertEqual(len(response.data), 0)
+        self.assertEqual(response.data, [])
