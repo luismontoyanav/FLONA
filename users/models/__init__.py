@@ -1,1 +1,1 @@
-from users.models.user import User, Employee
+from users.models.users import User, Employee

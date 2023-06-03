@@ -11,6 +11,5 @@ class EmployeesView(APIView):
 
     def get(self, request):
         employees = get_all_employees()
-        serializer = EmployeeSerializer(data=employees, many=True)
-        serializer.is_valid(raise_exception=True)
+        serializer = EmployeeSerializer(employees, many=True)
         return Response(data=serializer.data, status=status.HTTP_200_OK)
